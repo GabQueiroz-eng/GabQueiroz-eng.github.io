@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hábitos que Transformam – Grupo 1</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reset.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/theme/white.css" />
+
+  <style>
+    /* ── palette ── */
+    :root {
+      --navy:   #1b3a5c;
+      --blue:   #2a6db5;
+      --light:  #eaf1f9;
+      --text:   #2d2d2d;
+      --white:  #ffffff;
+      --red:    #c0392b;
+    }
+
+    /* ── base ── */
+    .reveal .slides section {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      color: var(--text);
+      box-sizing: border-box;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    /* ── SLIDE 1 – CAPA ── */
+    .capa {
+      background: linear-gradient(150deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white) !important;
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 40px 60px;
+    }
+
+    .capa .label-grupo {
+      font-size: 0.72em;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      opacity: 0.65;
+      margin-bottom: 18px;
+    }
+
+    /* ★ As per spec: Arial 24pt, bold, italic */
+    .capa .titulo-tema {
+      font-family: Arial, sans-serif;
+      font-size: 24pt;
+      font-weight: bold;
+      font-style: italic;
+      color: var(--white);
+      margin: 0 0 22px 0;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .capa .divider {
+      width: 70px;
+      height: 3px;
+      background: rgba(255,255,255,0.45);
+      margin: 0 auto 30px;
+    }
+
+    .capa .nomes {
+      font-size: 0.78em;
+      opacity: 0.75;
+      text-align: center;
+      line-height: 2.1;
+    }
+
+    .capa .nomes strong {
+      display: block;
+      opacity: 1;
+      margin-bottom: 4px;
+      font-size: 1em;
+    }
+
+    /* ── SLIDE GENÉRICO com header azul ── */
+    .slide-body {
+      padding: 0;
+      height: 100%;
+      display: flex !important;
+      flex-direction: column;
+    }
+
+    .slide-header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 18px 40px;
+      text-align: left;
+      border-bottom: 4px solid var(--blue);
+      flex-shrink: 0;
+    }
+
+    .slide-header h2 {
+      margin: 0;
+      font-size: 1.15em;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .slide-header .sub {
+      font-size: 0.72em;
+      opacity: 0.7;
+      margin-top: 3px;
+    }
+
+    .slide-content {
+      flex: 1;
+      padding: 28px 44px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ── lists ── */
+    .reveal ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .reveal ul li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 13px;
+      font-size: 0.88em;
+      text-align: left;
+      line-height: 1.45;
+    }
+
+    .reveal ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 0.9em;
+    }
+
+    /* ── two-column layout ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .col-box {
+      background: var(--light);
+      border-radius: 6px;
+      padding: 18px 20px;
+      border-left: 5px solid var(--blue);
+    }
+
+    .col-box.col-danger {
+      border-left-color: var(--red);
+    }
+
+    .col-box h4 {
+      color: var(--navy);
+      font-size: 0.88em;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .col-box.col-danger h4 {
+      color: var(--red);
+    }
+
+    .col-box ul li {
+      font-size: 0.82em;
+      margin-bottom: 9px;
+    }
+
+    /* ── info cards (sumário) ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: var(--light);
+      border-radius: 8px;
+      padding: 22px 18px;
+      text-align: center;
+      border-top: 5px solid var(--blue);
+    }
+
+    .card .card-num {
+      font-size: 2em;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+    }
+
+    .card .card-title {
+      font-size: 0.8em;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 8px;
+      line-height: 1.35;
+    }
+
+    .card .card-sub {
+      font-size: 0.7em;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ── highlight box ── */
+    .highlight-box {
+      background: var(--light);
+      border-left: 5px solid var(--blue);
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      font-size: 0.88em;
+      font-style: italic;
+      color: var(--navy);
+    }
+
+    /* ── matrix card (Eisenhower) ── */
+    .matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .matrix-cell {
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.75em;
+    }
+
+    .matrix-cell strong {
+      display: block;
+      font-size: 0.95em;
+      margin-bottom: 4px;
+    }
+
+    .mc1 { background: #d4edda; border: 1px solid #28a745; }
+    .mc2 { background: #fff3cd; border: 1px solid #ffc107; }
+    .mc3 { background: #cce5ff; border: 1px solid #004085; }
+    .mc4 { background: #f8d7da; border: 1px solid #721c24; }
+
+    /* ── SLIDE FIM ── */
+    .fim {
+      background: linear-gradient(150deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white) !important;
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .fim h1 {
+      font-family: Arial, sans-serif;
+      font-size: 3.5em;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 6px;
+      margin-bottom: 14px;
+    }
+
+    .fim p {
+      font-size: 0.85em;
+      opacity: 0.65;
+    }
+
+    /* ── reveal overrides ── */
+    .reveal .progress { color: var(--blue); }
+    .reveal .controls { color: var(--navy); }
+    .reveal .slide-number {
+      font-family: Arial, sans-serif;
+      font-size: 0.65em;
+      color: #888;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ═══════════════════════════════════════
+         SLIDE 1 – CAPA
+    ════════════════════════════════════════ -->
+    <section>
+      <div class="capa">
+        <div class="label-grupo">Grupo 1</div>
+
+        <h1 class="titulo-tema">Hábitos que Transformam</h1>
+
+        <div class="divider"></div>
+
+        <div class="nomes">
+          <strong>Integrantes:</strong>
+          ___________________________<br />
+          ___________________________<br />
+          ___________________________<br />
+          ___________________________
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SLIDE 2 – SUMÁRIO
+    ════════════════════════════════════════ -->
+    <section>
+      <div class="slide-body">
+        <div class="slide-header">
+          <h2>Sumário</h2>
+          <div class="sub">Temas abordados na apresentação</div>
+        </div>
+        <div class="slide-content">
+          <div class="cards">
+            <div class="card">
+              <div class="card-num">01</div>
+              <div class="card-title">Organização no e do Trabalho</div>
+              <div class="card-sub">Importância · Prática · Física</div>
+            </div>
+            <div class="card">
+              <div class="card-num">02</div>
+              <div class="card-title">Planejamento</div>
+              <div class="card-sub">O que é planejar · Prioridades · Gestão do tempo</div>
+            </div>
+            <div class="card">
+              <div class="card-num">03</div>
+              <div class="card-title">Produtividade</div>
+              <div class="card-sub">O que ajuda e o que atrapalha</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SLIDE 3 – ORGANIZAÇÃO | IMPORTÂNCIA
+    ════════════════════════════════════════ -->
+    <section>
+      <div class="slide-body">
+        <div class="slide-header">
+          <h2>Organização no e do Trabalho</h2>
+          <div class="sub">A importância de ser organizado</div>
+        </div>
+        <div class="slide-content">
+          <div class="highlight-box">
+            "Organização não é um fim em si mesmo — é o meio pelo qual transformamos esforço em resultado."
+          </div>
+          <ul>
+            <li>Reduz o estresse e a sensação de sobrecarga no dia a dia</li>
+            <li>Aumenta a eficiência: menos tempo buscando, mais tempo produzindo</li>
+            <li>Melhora a qualidade das entregas e a confiança da equipe</li>
+            <li>Facilita a comunicação e a colaboração entre as pessoas</li>
+            <li>Reflete diretamente na imagem e na credibilidade profissional</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SLIDE 4 – ORGANIZAÇÃO NA PRÁTICA E FÍSICA
+    ════════════════════════════════════════ -->
+    <section>
+      <div class="slide-body">
+        <div class="slide-header">
+          <h2>Organização no e do Trabalho</h2>
+          <div class="sub">Na prática e no espaço físico</div>
+        </div>
+        <div class="slide-content">
+          <div class="two-col">
+            <div class="col-box">
+              <h4>Organização na Prática</h4>
+              <ul>
+                <li>Criar listas de tarefas e checklists diários</li>
+                <li>Utilizar ferramentas digitais de gestão</li>
+                <li>Definir blocos de tempo para cada atividade</li>
+                <li>Centralizar comunicações e evitar dispersão</li>
+                <li>Revisar e ajustar as prioridades regularmente</li>
+              </ul>
+            </div>
+            <div class="col-box">
+              <h4>Organização Física</h4>
+              <ul>
+                <li>Manter a mesa com apenas o essencial</li>
+                <li>Arquivar documentos de forma categorizada</li>
+                <li>Criar um ambiente funcional e livre de distrações</li>
+                <li>Identificar e eliminar o que não é necessário</li>
+                <li>Padronizar a disposição dos materiais de uso frequente</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SLIDE 5 – PLANEJAMENTO | O QUE É PLANEJAR
+    ════════════════════════════════════════ -->
+    <section>
+      <div class="slide-body">
+        <div class="slide-header">
+          <h2>Planejamento</h2>
+          <div class="sub">O que é planejar?</div>
+        </div>
+        <div class="slide-content">
+          <div class="highlight-box">
+            Planejar é <strong>antecipar ações</strong> para alcançar objetivos definidos — transformando
+            intenções em um roteiro claro de atividades.
+          </div>
+          <ul>
+            <li>Permite visualizar o caminho entre o ponto atual e o objetivo</li>
+            <li>Reduz imprevistos, retrabalho e desperdício de recursos</li>
+            <li>Aumenta a segurança nas decisões e diminui a improvisação</li>
+            <li>Cria responsabilidade e comprometimento com os resultados</li>
+            <li>É a base de toda produtividade sustentável e consistente</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SLIDE 6 – PRIORIDADES E GESTÃO DO TEMPO
+    ════════════════════════════════════════ -->
+    <section>
+      <div class="slide-body">
+        <div class="slide-header">
+          <h2>Planejamento</h2>
+          <div class="sub">Como definir prioridades e administrar o tempo</div>
+        </div>
+        <div class="slide-content">
+          <div style="margin-bottom:14px; font-size:0.82em; font-weight:700; color: var(--navy);">
+            Matriz de Eisenhower — classifique cada tarefa:
+          </div>
+          <div class="matrix" style="margin-bottom:18px;">
+            <div class="matrix-cell mc1"><strong>Urgente + Importante</strong>Faça agora</div>
+            <div class="matrix-cell mc2"><strong>Não urgente + Importante</strong>Agende</div>
+            <div class="matrix-cell mc3"><strong>Urgente + Não importante</strong>Delegue</div>
+            <div class="matrix-cell mc4"><strong>Não urgente + Não importante</strong>Elimine</div>
+          </div>
+          <ul>
+            <li>Técnica Pomodoro: foco em blocos de 25 minutos com pausas programadas</li>
+            <li>Regra 80/20: 20% das ações concentram 80% dos resultados — identifique-as</li>
+            <li>Estabeleça metas diárias, semanais e mensais realistas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SLIDE 7 – O QUE AJUDA E O QUE ATRAPALHA
+    ════════════════════════════════════════ -->
+    <section>
+      <div class="slide-body">
+        <div class="slide-header">
+          <h2>O que Ajuda e o que Atrapalha a Produtividade</h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-col">
+            <div class="col-box">
+              <h4>✔ O que Ajuda</h4>
+              <ul>
+                <li>Ambiente organizado e livre de distrações</li>
+                <li>Metas claras, mensuráveis e alcançáveis</li>
+                <li>Pausas programadas e descanso de qualidade</li>
+                <li>Delegação consciente de tarefas</li>
+                <li>Uso de ferramentas e métodos adequados</li>
+                <li>Comunicação direta e objetiva</li>
+              </ul>
+            </div>
+            <div class="col-box col-danger">
+              <h4>✘ O que Atrapalha</h4>
+              <ul>
+                <li>Uso excessivo de celular e redes sociais</li>
+                <li>Multitarefa sem planejamento prévio</li>
+                <li>Reuniões desnecessárias ou mal conduzidas</li>
+                <li>Ambiente desorganizado e caótico</li>
+                <li>Ausência de limites entre vida pessoal e profissional</li>
+                <li>Procrastinação e falta de disciplina</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SLIDE 8 – FIM
+    ════════════════════════════════════════ -->
+    <section>
+      <div class="fim">
+        <h1>FIM</h1>
+        <p>Obrigado pela atenção — Grupo 1</p>
+      </div>
+    </section>
+
+  </div><!-- /slides -->
+</div><!-- /reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    transition: 'slide',
+    transitionSpeed: 'default',
+    controls: true,
+    controlsTutorial: false,
+    progress: true,
+    center: false,
+    width: 1280,
+    height: 720,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+  });
+</script>
+
+</body>
+</html>
