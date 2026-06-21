@@ -8,233 +8,283 @@
   <title>ERQ Construções — Shaping Visions Into Reality</title>
   <meta name="description" content="ERQ Construções specializes in turning raw concrete and bold blueprints into structural masterpieces. Move your cursor to see the transformation." />
 
-  <!-- React 18 (UMD) + Babel for in-browser JSX -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind (Play CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --accent: #d2611f;
+      --accent-hover: #e8702a;
+    }
 
-  <style type="text/tailwindcss">
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,600;0,700;1,600&display=swap');
-    * { font-family: 'Inter', sans-serif; }
-    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    .font-montserrat { font-family: 'Montserrat', 'Inter', sans-serif; }
 
+    html, body { height: 100%; }
+    body {
+      background: #171717;
+      letter-spacing: -0.02em;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    /* ── Section / layers ──────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .layer { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; }
+
+    .base-image { z-index: 10; filter: grayscale(30%); }
+    .reveal-image { z-index: 30; pointer-events: none; }
+    .reveal-canvas { position: absolute; inset: 0; pointer-events: none; display: none; }
+
+    /* ── Heading ───────────────────────────────────────────────────── */
+    .heading {
+      position: absolute;
+      top: 18%;
+      left: 0; right: 0;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      pointer-events: none;
+      z-index: 50;
+    }
+    .heading h1 { line-height: 0.95; text-shadow: 0 10px 15px rgba(0,0,0,0.45); }
+    .heading .line1 {
+      display: block; font-weight: 700; text-transform: uppercase;
+      letter-spacing: -0.025em; font-size: 3rem; color: #fff;
+    }
+    .heading .line2 {
+      display: block; font-weight: 300; font-size: 2.25rem;
+      margin-top: 0.5rem; color: rgba(255,255,255,0.9);
+    }
+
+    /* ── Bottom-left blurb ─────────────────────────────────────────── */
+    .blurb {
+      display: none;
+      position: absolute; bottom: 56px; left: 40px;
+      max-width: 300px;
+      background: rgba(0,0,0,0.4);
+      padding: 16px;
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      border-left: 2px solid var(--accent);
+      z-index: 50;
+    }
+    .blurb p { font-size: 0.875rem; color: rgba(255,255,255,0.9); line-height: 1.625; }
+
+    /* ── Bottom-right block ────────────────────────────────────────── */
+    .cta {
+      position: absolute; bottom: 40px; left: 20px; right: 20px;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+      z-index: 50;
+    }
+    .btn-start {
+      background: var(--accent); color: #fff; border: none; cursor: pointer;
+      font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 16px 32px;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-start:hover { background: var(--accent-hover); transform: scale(1.02); }
+    .btn-start:active { transform: scale(0.95); }
+
+    /* ── Navigation ────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand span { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.025em; }
+
+    .pill {
+      display: none;
+      position: absolute; left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 9999px; padding: 8px; align-items: center; gap: 4px;
+    }
+    .pill button {
+      background: transparent; border: none; cursor: pointer;
+      color: rgba(255,255,255,0.7);
+      padding: 6px 20px; border-radius: 9999px;
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .pill button:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .pill button.active { background: #fff; color: #000; }
+
+    .quote {
+      display: none;
+      background: transparent; border: 1px solid #fff; color: #fff; cursor: pointer;
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;
+      padding: 10px 24px; transition: background 0.2s ease, color 0.2s ease;
+    }
+    .quote:hover { background: #fff; color: #000; }
+
+    .hamburger { background: transparent; border: none; color: #fff; cursor: pointer; padding: 4px; display: inline-flex; }
+
+    /* ── Animations ────────────────────────────────────────────────── */
     @keyframes heroReveal { 0%{opacity:0;transform:translateY(30px);filter:blur(10px)} 100%{opacity:1;transform:translateY(0);filter:blur(0)} }
     @keyframes heroFadeUp { 0%{opacity:0;transform:translateY(20px)} 100%{opacity:1;transform:translateY(0)} }
-    @keyframes heroZoom { 0%{transform:scale(1.08)} 100%{transform:scale(1)} }
-    .hero-anim { opacity:0; animation-fill-mode:forwards; animation-timing-function:cubic-bezier(0.2, 0.8, 0.2, 1); }
+    @keyframes heroZoom   { 0%{transform:scale(1.08)} 100%{transform:scale(1)} }
+    .hero-anim { opacity:0; animation-fill-mode:forwards; animation-timing-function:cubic-bezier(0.2,0.8,0.2,1); }
     .hero-reveal { animation-name:heroReveal; animation-duration:1.2s; }
-    .hero-fade { animation-name:heroFadeUp; animation-duration:1s; }
-    .hero-zoom { animation:heroZoom 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+    .hero-fade   { animation-name:heroFadeUp; animation-duration:1s; }
+    .hero-zoom   { animation:heroZoom 2s cubic-bezier(0.2,0.8,0.2,1) forwards; }
     @media (prefers-reduced-motion: reduce){ .hero-anim,.hero-zoom{ animation:none; opacity:1; } }
 
-    html, body, #root { margin:0; height:100%; background:#171717; }
+    /* ── Responsive ────────────────────────────────────────────────── */
+    @media (min-width: 640px) {
+      .blurb { display: block; }
+      .heading .line1 { font-size: 4.5rem; }
+      .heading .line2 { font-size: 3.75rem; }
+      .cta { bottom: 56px; left: auto; right: 40px; max-width: 260px; gap: 20px; }
+    }
+    @media (min-width: 768px) {
+      nav { padding: 20px 40px; }
+      .blurb { left: 56px; }
+      .pill { display: flex; }
+      .quote { display: block; }
+      .hamburger { display: none; }
+      .heading .line1 { font-size: 6rem; }
+      .heading .line2 { font-size: 4.5rem; }
+      .cta { right: 56px; }
+    }
   </style>
 </head>
 <body>
-  <div id="root"></div>
+  <!-- ── Navigation ──────────────────────────────────────────────── -->
+  <nav>
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 21V8l7-4 7 4v4h4v9h-7v-5H10v5H3zm2-2h3v-4h2v4h3V9.2L10 6.3 5 9.2V19zm12 0h2v-5h-2v5z"/>
+      </svg>
+      <span class="font-montserrat">ERQ CONSTRUÇÕES</span>
+    </div>
 
-  <script type="text/babel" data-presets="react">
-    const { useState, useEffect, useRef } = React;
+    <div class="pill">
+      <button class="active">Portfolio</button>
+      <button>Services</button>
+      <button>Engineering</button>
+      <button>About Us</button>
+      <button>Contact</button>
+    </div>
 
-    // ── Assets (stock placeholders) ────────────────────────────────────────────
-    const BEFORE_IMAGE = "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2070&q=80"; // raw construction site
-    const AFTER_IMAGE  = "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2070&q=80"; // finished modern building
+    <button class="quote">Get a Quote</button>
+    <button class="hamburger" aria-label="Open menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </nav>
 
-    const SPOTLIGHT_R = 300;
+  <!-- ── Hero ────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <!-- 1. Base image (Before) -->
+    <div class="layer base-image hero-zoom" id="baseImage"></div>
 
-    // ── Reveal layer: canvas-masked "After" image following the cursor ─────────
-    function RevealLayer({ image, cursorX, cursorY }) {
-      const canvasRef = useRef(null);
-      const divRef = useRef(null);
+    <!-- 2. Reveal layer (After) -->
+    <canvas class="reveal-canvas" id="revealCanvas"></canvas>
+    <div class="layer reveal-image" id="revealImage"></div>
 
-      // Keep the canvas matched to the viewport.
-      useEffect(() => {
-        const resize = () => {
-          const c = canvasRef.current;
-          if (!c) return;
-          c.width = window.innerWidth;
-          c.height = window.innerHeight;
-        };
-        resize();
-        window.addEventListener("resize", resize);
-        return () => window.removeEventListener("resize", resize);
-      }, []);
+    <!-- 3. Heading -->
+    <div class="heading">
+      <h1>
+        <span class="line1 font-montserrat hero-anim hero-reveal" style="animation-delay:0.3s">SHAPING VISIONS</span>
+        <span class="line2 font-montserrat hero-anim hero-reveal" style="animation-delay:0.5s">INTO REALITY</span>
+      </h1>
+    </div>
 
-      // Redraw the soft circular mask every time the cursor moves.
-      useEffect(() => {
-        const c = canvasRef.current;
-        const div = divRef.current;
-        if (!c || !div) return;
-        const ctx = c.getContext("2d");
-        if (!ctx) return;
+    <!-- 4. Bottom-left blurb -->
+    <div class="blurb hero-anim hero-fade" style="animation-delay:0.8s">
+      <p>Established in June 2024, ERQ Construções specializes in turning raw concrete and bold blueprints into structural masterpieces. Move your cursor (or touch &amp; drag) to see the transformation.</p>
+    </div>
 
-        ctx.clearRect(0, 0, c.width, c.height);
+    <!-- 5. Bottom-right block -->
+    <div class="cta hero-anim hero-fade" style="animation-delay:1.0s">
+      <button class="btn-start">Start Project</button>
+    </div>
+  </section>
 
-        const grad = ctx.createRadialGradient(cursorX, cursorY, 0, cursorX, cursorY, SPOTLIGHT_R);
+  <script>
+    (function () {
+      var BEFORE_IMAGE = "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2070&q=80"; // raw construction site
+      var AFTER_IMAGE  = "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2070&q=80"; // finished modern building
+      var SPOTLIGHT_R = 300;
+
+      document.getElementById("baseImage").style.backgroundImage   = "url(" + BEFORE_IMAGE + ")";
+      var revealDiv = document.getElementById("revealImage");
+      revealDiv.style.backgroundImage = "url(" + AFTER_IMAGE + ")";
+
+      var canvas = document.getElementById("revealCanvas");
+      var ctx = canvas.getContext("2d");
+
+      function sizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      sizeCanvas();
+      window.addEventListener("resize", sizeCanvas);
+
+      // Smoothed cursor (Emil-Kowalski-style lerp) driven by mouse + touch.
+      var mouse  = { x: -999, y: -999 };
+      var smooth = { x: -999, y: -999 };
+
+      window.addEventListener("mousemove", function (e) {
+        mouse.x = e.clientX; mouse.y = e.clientY;
+      });
+
+      function onTouch(e) {
+        var t = e.touches && e.touches[0];
+        if (!t) return;
+        if (smooth.x < 0) { smooth.x = t.clientX; smooth.y = t.clientY; } // snap in on first touch
+        mouse.x = t.clientX; mouse.y = t.clientY;
+      }
+      window.addEventListener("touchstart", onTouch, { passive: true });
+      window.addEventListener("touchmove",  onTouch, { passive: true });
+
+      function drawMask(x, y) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var grad = ctx.createRadialGradient(x, y, 0, x, y, SPOTLIGHT_R);
         grad.addColorStop(0,    "rgba(255,255,255,1)");
         grad.addColorStop(0.4,  "rgba(255,255,255,1)");
         grad.addColorStop(0.6,  "rgba(255,255,255,0.8)");
         grad.addColorStop(0.75, "rgba(255,255,255,0.4)");
         grad.addColorStop(0.88, "rgba(255,255,255,0.1)");
         grad.addColorStop(1,    "rgba(255,255,255,0)");
-
         ctx.fillStyle = grad;
         ctx.beginPath();
-        ctx.arc(cursorX, cursorY, SPOTLIGHT_R, 0, Math.PI * 2);
+        ctx.arc(x, y, SPOTLIGHT_R, 0, Math.PI * 2);
         ctx.fill();
 
-        const url = c.toDataURL();
-        div.style.maskImage = `url(${url})`;
-        div.style.webkitMaskImage = `url(${url})`;
-        div.style.maskSize = "100% 100%";
-        div.style.webkitMaskSize = "100% 100%";
-        div.style.maskRepeat = "no-repeat";
-        div.style.webkitMaskRepeat = "no-repeat";
-      });
+        var url = canvas.toDataURL();
+        revealDiv.style.maskImage = "url(" + url + ")";
+        revealDiv.style.webkitMaskImage = "url(" + url + ")";
+        revealDiv.style.maskSize = "100% 100%";
+        revealDiv.style.webkitMaskSize = "100% 100%";
+        revealDiv.style.maskRepeat = "no-repeat";
+        revealDiv.style.webkitMaskRepeat = "no-repeat";
+      }
 
-      return (
-        <React.Fragment>
-          <canvas
-            ref={canvasRef}
-            className="absolute inset-0 pointer-events-none"
-            style={{ display: "none" }}
-          />
-          <div
-            ref={divRef}
-            className="absolute inset-0 bg-center bg-cover bg-no-repeat z-30 pointer-events-none"
-            style={{ backgroundImage: `url(${image})` }}
-          />
-        </React.Fragment>
-      );
-    }
-
-    // ── Navigation ─────────────────────────────────────────────────────────────
-    function Nav() {
-      const navBtns = ["Services", "Engineering", "About Us", "Contact"];
-      return (
-        <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between p-5 md:px-10 border-b border-white/10 bg-gradient-to-b from-black/60 to-transparent pointer-events-auto">
-          {/* Left: logo + wordmark */}
-          <div className="flex items-center gap-3">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M3 21V8l7-4 7 4v4h4v9h-7v-5H10v5H3zm2-2h3v-4h2v4h3V9.2L10 6.3 5 9.2V19zm12 0h2v-5h-2v5z"/>
-            </svg>
-            <span className="text-white text-xl font-montserrat font-bold tracking-wide">ERQ CONSTRUÇÕES</span>
-          </div>
-
-          {/* Center pill */}
-          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 bg-black/30 backdrop-blur-md border border-white/20 rounded-full px-2 py-2 items-center gap-1">
-            <button className="bg-white text-black px-5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors">Portfolio</button>
-            {navBtns.map((b) => (
-              <button key={b} className="text-white/70 hover:bg-white/10 hover:text-white transition-colors px-5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">{b}</button>
-            ))}
-          </div>
-
-          {/* Right: desktop quote + mobile hamburger */}
-          <button className="hidden md:block bg-transparent border border-white text-white text-xs uppercase tracking-wider font-bold px-6 py-2.5 hover:bg-white hover:text-black transition-colors">Get a Quote</button>
-          <button className="md:hidden text-white p-1" aria-label="Open menu">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-              <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-            </svg>
-          </button>
-        </nav>
-      );
-    }
-
-    // ── App ─────────────────────────────────────────────────────────────────────
-    function App() {
-      const [cursorPos, setCursorPos] = useState({ x: -999, y: -999 });
-      const mouse = useRef({ x: -999, y: -999 });
-      const smooth = useRef({ x: -999, y: -999 });
-      const rafRef = useRef(null);
-
-      useEffect(() => {
-        const onMove = (e) => {
-          mouse.current.x = e.clientX;
-          mouse.current.y = e.clientY;
-        };
-
-        // Touch: drive the same spotlight from the active finger. On the first
-        // touch we snap `smooth` to the point so the reveal appears instantly
-        // (no lerp-in from the off-screen start), then it trails the finger.
-        const onTouch = (e) => {
-          const t = e.touches && e.touches[0];
-          if (!t) return;
-          if (smooth.current.x < 0) {
-            smooth.current.x = t.clientX;
-            smooth.current.y = t.clientY;
-          }
-          mouse.current.x = t.clientX;
-          mouse.current.y = t.clientY;
-        };
-
-        window.addEventListener("mousemove", onMove);
-        window.addEventListener("touchstart", onTouch, { passive: true });
-        window.addEventListener("touchmove", onTouch, { passive: true });
-
-        const loop = () => {
-          smooth.current.x += (mouse.current.x - smooth.current.x) * 0.12;
-          smooth.current.y += (mouse.current.y - smooth.current.y) * 0.12;
-          setCursorPos({ x: smooth.current.x, y: smooth.current.y });
-          rafRef.current = requestAnimationFrame(loop);
-        };
-        rafRef.current = requestAnimationFrame(loop);
-
-        return () => {
-          window.removeEventListener("mousemove", onMove);
-          window.removeEventListener("touchstart", onTouch);
-          window.removeEventListener("touchmove", onTouch);
-          if (rafRef.current) cancelAnimationFrame(rafRef.current);
-        };
-      }, []);
-
-      return (
-        <div className="min-h-screen bg-neutral-900 tracking-[-0.02em]" style={{ fontFamily: "'Inter', sans-serif" }}>
-          <Nav />
-
-          <section className="relative w-full overflow-hidden h-screen bg-black" style={{ height: "100dvh" }}>
-            {/* 1. Base image (Before) */}
-            <div
-              className="absolute inset-0 bg-center bg-cover bg-no-repeat grayscale-[30%] z-10 hero-zoom"
-              style={{ backgroundImage: `url(${BEFORE_IMAGE})` }}
-            />
-
-            {/* 2. Reveal layer (After) */}
-            <RevealLayer image={AFTER_IMAGE} cursorX={cursorPos.x} cursorY={cursorPos.y} />
-
-            {/* 3. Heading */}
-            <div className="absolute top-[18%] left-0 right-0 flex flex-col items-center text-center px-5 pointer-events-none z-50">
-              <h1 className="text-white leading-[0.95] drop-shadow-lg">
-                <span className="block font-montserrat font-bold text-5xl sm:text-7xl md:text-8xl uppercase tracking-tight hero-anim hero-reveal" style={{ animationDelay: "0.3s" }}>
-                  SHAPING VISIONS
-                </span>
-                <span className="block font-montserrat font-light text-4xl sm:text-6xl md:text-7xl mt-2 text-white/90 hero-anim hero-reveal" style={{ animationDelay: "0.5s" }}>
-                  INTO REALITY
-                </span>
-              </h1>
-            </div>
-
-            {/* 4. Bottom-left paragraph */}
-            <div className="hidden sm:block absolute bottom-14 left-10 md:left-14 max-w-[300px] bg-black/40 p-4 backdrop-blur-sm border-l-2 border-[#d2611f] z-50 hero-anim hero-fade" style={{ animationDelay: "0.8s" }}>
-              <p className="text-sm text-white/90 leading-relaxed">
-                Established in June 2024, ERQ Construções specializes in turning raw concrete and bold blueprints into structural masterpieces. Move your cursor to see the transformation.
-              </p>
-            </div>
-
-            {/* 5. Bottom-right block */}
-            <div className="absolute bottom-10 sm:bottom-14 left-5 right-5 sm:left-auto sm:right-10 md:right-14 max-w-full sm:max-w-[260px] flex flex-col items-start gap-4 sm:gap-5 z-50 hero-anim hero-fade" style={{ animationDelay: "1.0s" }}>
-              <button className="bg-[#d2611f] hover:bg-[#e8702a] text-white text-sm font-bold uppercase tracking-wider px-8 py-4 rounded-none transition-all hover:scale-[1.02] active:scale-95 shadow-lg">
-                Start Project
-              </button>
-            </div>
-          </section>
-        </div>
-      );
-    }
-
-    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+      function loop() {
+        smooth.x += (mouse.x - smooth.x) * 0.12;
+        smooth.y += (mouse.y - smooth.y) * 0.12;
+        drawMask(smooth.x, smooth.y);
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
+    })();
   </script>
 </body>
 </html>
