@@ -155,7 +155,24 @@
           mouse.current.x = e.clientX;
           mouse.current.y = e.clientY;
         };
+
+        // Touch: drive the same spotlight from the active finger. On the first
+        // touch we snap `smooth` to the point so the reveal appears instantly
+        // (no lerp-in from the off-screen start), then it trails the finger.
+        const onTouch = (e) => {
+          const t = e.touches && e.touches[0];
+          if (!t) return;
+          if (smooth.current.x < 0) {
+            smooth.current.x = t.clientX;
+            smooth.current.y = t.clientY;
+          }
+          mouse.current.x = t.clientX;
+          mouse.current.y = t.clientY;
+        };
+
         window.addEventListener("mousemove", onMove);
+        window.addEventListener("touchstart", onTouch, { passive: true });
+        window.addEventListener("touchmove", onTouch, { passive: true });
 
         const loop = () => {
           smooth.current.x += (mouse.current.x - smooth.current.x) * 0.12;
@@ -167,6 +184,8 @@
 
         return () => {
           window.removeEventListener("mousemove", onMove);
+          window.removeEventListener("touchstart", onTouch);
+          window.removeEventListener("touchmove", onTouch);
           if (rafRef.current) cancelAnimationFrame(rafRef.current);
         };
       }, []);
