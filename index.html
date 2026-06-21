@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- SEO -->
+  <title>Instituto Odontológico Santa Amélia Premium — Odontologia de Excelência em BH</title>
+  <meta name="description" content="Odontologia premium em Belo Horizonte. Implantes, ortodontia, harmonização orofacial e estética dental no bairro Santa Amélia. Equipe especializada, atendimento humanizado." />
+  <meta name="keywords" content="odontologia premium, dentista Belo Horizonte, implantes Santa Amélia, ortodontia BH, harmonização orofacial Pampulha, clínica odontológica Santa Amélia" />
+  <meta name="author" content="Instituto Odontológico Santa Amélia Premium" />
+  <link rel="canonical" href="https://iosapremium.com.br/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Instituto Odontológico Santa Amélia Premium" />
+  <meta property="og:description" content="Odontologia premium em Belo Horizonte — onde ciência, estética e humanização se encontram." />
+  <meta property="og:url" content="https://iosapremium.com.br/" />
+  <meta property="og:site_name" content="IOSA Premium" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Instituto Odontológico Santa Amélia Premium" />
+  <meta name="twitter:description" content="Odontologia premium em Belo Horizonte." />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "Instituto Odontológico Santa Amélia Premium",
+    "image": "https://iosapremium.com.br/og.jpg",
+    "url": "https://iosapremium.com.br/",
+    "telephone": "+553133339000",
+    "priceRange": "$$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua dos Ipês, 450",
+      "addressLocality": "Belo Horizonte",
+      "addressRegion": "MG",
+      "postalCode": "31555-000",
+      "addressCountry": "BR"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "487"
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            ink:      '#0a0a0a',
+            graphite: '#1a1a1a',
+            mist:     '#f7f6f3',
+            pearl:    '#faf9f7',
+            stone:    '#e5e3df',
+            ash:      '#6b6b6b',
+            mute:     '#a6a6a6',
+            navy:     '#152a44',
+            navyDeep: '#0e1f33',
+            skyMute:  '#9bb7d8',
+          },
+          letterSpacing: {
+            'super-wide': '.32em',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --ease: cubic-bezier(.22,.61,.36,1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #ffffff;
+      color: #0a0a0a;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .font-display { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+    .eyebrow {
+      font-size: 11px; letter-spacing: .32em; text-transform: uppercase;
+      font-weight: 500; color: #6b6b6b;
+    }
+    .eyebrow-light { color: #a6a6a6; }
+    .container-x { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+    @media (min-width: 1024px) { .container-x { padding-left: 3rem; padding-right: 3rem; } }
+    .section-y { padding-top: 7rem; padding-bottom: 7rem; }
+    @media (min-width: 1024px) { .section-y { padding-top: 10rem; padding-bottom: 10rem; } }
+    .section-y-sm { padding-top: 6rem; padding-bottom: 6rem; }
+    @media (min-width: 1024px) { .section-y-sm { padding-top: 8rem; padding-bottom: 8rem; } }
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+    /* Subtle hairlines */
+    .hair { background: linear-gradient(to right, transparent, #d9d6d0 50%, transparent); height: 1px; }
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+      padding: 1rem 1.75rem; background: #0a0a0a; color: #fff;
+      font-size: 12px; letter-spacing: .26em; text-transform: uppercase; font-weight: 500;
+      transition: background .35s var(--ease), transform .35s var(--ease);
+    }
+    .btn-primary:hover { background: #152a44; }
+    .btn-primary-invert { background: #fff; color: #0a0a0a; }
+    .btn-primary-invert:hover { background: #f7f6f3; color: #0a0a0a; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: .55rem;
+      font-size: 12px; letter-spacing: .26em; text-transform: uppercase; font-weight: 500;
+      color: #0a0a0a; border-bottom: 1px solid #0a0a0a; padding-bottom: 4px;
+      transition: color .35s var(--ease), border-color .35s var(--ease);
+    }
+    .btn-ghost:hover { color: #152a44; border-color: #152a44; }
+    .btn-ghost-invert { color: #fff; border-color: #fff; }
+    .btn-ghost-invert:hover { color: rgba(255,255,255,.75); border-color: rgba(255,255,255,.75); }
+    /* Inputs */
+    .field {
+      width: 100%; background: transparent; border: 0; border-bottom: 1px solid #d9d6d0;
+      padding: 14px 0; font-size: 15px; color: #0a0a0a; outline: none;
+      transition: border-color .35s var(--ease);
+    }
+    .field:focus { border-color: #152a44; }
+    .field-invert { color: #fff; border-color: rgba(255,255,255,.25); }
+    .field-invert:focus { border-color: #fff; }
+    .field-label {
+      font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #6b6b6b; font-weight: 500;
+    }
+    .field-label-invert { color: #a6a6a6; }
+    /* Marquee */
+    @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-track { animation: drift 38s linear infinite; }
+    /* Focus visible */
+    a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+      outline: 2px solid #152a44; outline-offset: 3px;
+    }
+    /* Selection */
+    ::selection { background: #152a44; color: #fff; }
+    /* Hide scrollbar inside marquee */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .marquee-track { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+    @media (max-width: 1023px) {
+      body { padding-bottom: 56px; }
+    }
+  </style>
+
+  <!-- React -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-ink focus:text-white focus:px-4 focus:py-2">
+    Pular para o conteúdo principal
+  </a>
+
+  <div id="root"></div>
+
+  <script type="text/babel" data-presets="env,react">
+
+    const { useEffect, useRef, useState } = React;
+
+    // ─────────────────────────── Data
+    const NAV = [
+      { href: '#sobre',         label: 'Sobre' },
+      { href: '#diferenciais',  label: 'Diferenciais' },
+      { href: '#equipe',        label: 'Equipe' },
+      { href: '#especialidades',label: 'Especialidades' },
+      { href: '#depoimentos',   label: 'Depoimentos' },
+      { href: '#contato',       label: 'Contato' },
+    ];
+
+    const SPECIALTIES = [
+      { n: '01', t: 'Limpeza & Profilaxia',  d: 'Protocolo clínico minucioso para preservar a saúde bucal a longo prazo.' },
+      { n: '02', t: 'Clareamento Dental',    d: 'Tons mais claros com técnica supervisionada e respeito à sensibilidade.' },
+      { n: '03', t: 'Ortodontia',            d: 'Alinhadores invisíveis e aparelhos de última geração para sorrisos equilibrados.' },
+      { n: '04', t: 'Implantes Dentários',   d: 'Reabilitação cirúrgica com planejamento digital guiado e precisão milimétrica.' },
+      { n: '05', t: 'Harmonização Orofacial',d: 'Refinamento facial sutil que valoriza traços naturais e proporção.' },
+      { n: '06', t: 'Endodontia',            d: 'Tratamento de canal com microscopia clínica e desconforto minimizado.' },
+      { n: '07', t: 'Facetas em Porcelana',  d: 'Cerâmicas de alta translucidez moldadas para um sorriso autêntico.' },
+      { n: '08', t: 'Lentes de Contato',     d: 'Camadas ultrafinas que transformam o sorriso preservando a estrutura natural.' },
+    ];
+
+    const TEAM = [
+      { name: 'Dra. Mariana Almeida',  role: 'Ortodontia',           credo: 'CRO/MG 28.114', initials: 'MA' },
+      { name: 'Dr. Ricardo Oliveira',  role: 'Implantodontia',       credo: 'CRO/MG 24.602', initials: 'RO' },
+      { name: 'Dra. Fernanda Costa',   role: 'Harmonização Orofacial', credo: 'CRO/MG 31.087', initials: 'FC' },
+      { name: 'Dr. Lucas Martins',     role: 'Endodontia',           credo: 'CRO/MG 29.745', initials: 'LM' },
+    ];
+
+    const DIFFERENTIALS = [
+      { t: 'Tecnologia de Ponta',       d: 'Scanner intraoral, tomografia 3D e fluxo de trabalho totalmente digital.' },
+      { t: 'Planejamento Individual',   d: 'Cada paciente recebe um protocolo único, construído por uma equipe multidisciplinar.' },
+      { t: 'Ambiente Acolhedor',        d: 'Arquitetura assinada que transmite calma desde o primeiro instante.' },
+      { t: 'Atendimento Concierge',     d: 'Acompanhamento dedicado antes, durante e depois de cada procedimento.' },
+      { t: 'Materiais Premium',         d: 'Trabalhamos somente com fornecedores e cerâmicas de reputação internacional.' },
+      { t: 'Discrição & Privacidade',   d: 'Salas individuais e protocolo de confidencialidade em todas as etapas.' },
+    ];
+
+    const TESTIMONIALS = [
+      { name: 'Beatriz Rezende', role: 'Cliente desde 2019', text: 'Cada detalhe é pensado. Saí da clínica não apenas com o sorriso transformado, mas com a sensação de ter sido genuinamente cuidada.' },
+      { name: 'Henrique Santana', role: 'Cliente desde 2021', text: 'Fui paciente em três clínicas antes de chegar aqui. A diferença em planejamento, comunicação e estética é evidente.' },
+      { name: 'Larissa Andrade',  role: 'Cliente desde 2020', text: 'A Dra. Mariana conduziu meu tratamento ortodôntico com uma serenidade e precisão que dão tranquilidade.' },
+      { name: 'Eduardo Vasconcelos', role: 'Cliente desde 2022', text: 'O implante feito pelo Dr. Ricardo foi impecável. Procedimento confortável e resultado natural — exatamente como prometido.' },
+      { name: 'Camila Penido',    role: 'Cliente desde 2018', text: 'Há seis anos confio meu sorriso ao Instituto. A constância no padrão de excelência é o que mais me impressiona.' },
+      { name: 'Rafael Ottoni',    role: 'Cliente desde 2023', text: 'Atendimento à altura de marcas internacionais que admiro. Cada toque transmite cuidado e refinamento.' },
+    ];
+
+    const FAQS = [
+      { q: 'Como funciona a primeira consulta?', a: 'A primeira consulta inclui avaliação clínica completa, exames de imagem quando necessário e a elaboração de um plano de tratamento personalizado, apresentado em uma segunda visita sem custo adicional.' },
+      { q: 'Vocês atendem convênios?',           a: 'O Instituto opera em regime particular, com possibilidade de reembolso via planos que aceitam recibo. Oferecemos parcelamento próprio em até 24 vezes.' },
+      { q: 'É possível tratar várias especialidades em paralelo?', a: 'Sim. Nossa estrutura multidisciplinar permite que ortodontia, implantes e estética sejam conduzidos de forma integrada, com cronograma único.' },
+      { q: 'Quais protocolos de biossegurança são adotados?',     a: 'Seguimos protocolos hospitalares: esterilização a vapor, instrumentais embalados individualmente, salas com troca de ar e EPIs renovados a cada paciente.' },
+      { q: 'Há estacionamento próprio?',          a: 'Sim, contamos com estacionamento exclusivo e serviço de valet em horários de pico, sem custo aos pacientes.' },
+      { q: 'Atendem pacientes de outras cidades?',a: 'Recebemos pacientes de todo o Brasil. Nossa equipe de relacionamento auxilia em logística de hospedagem e cronograma compacto.' },
+    ];
+
+    const YEAR = new Date().getFullYear();
+    const STARS = '★★★★★';
+    const CONTACT = {
+      phone:    { href: 'tel:+553133339000',         label: '(31) 3333-9000' },
+      whatsapp: { href: 'https://wa.me/5531999999000', label: 'WhatsApp · (31) 99999-9000' },
+      email:    { href: 'mailto:contato@iosapremium.com.br', label: 'contato@iosapremium.com.br' },
+    };
+
+    // ─────────────────────────── Hooks
+    function useReveal() {
+      useEffect(() => {
+        if (typeof IntersectionObserver === 'undefined') {
+          document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+          return;
+        }
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+        return () => io.disconnect();
+      }, []);
+    }
+
+    // ─────────────────────────── Components
+    function Logo({ light=false }) {
+      return (
+        <a href="#top" aria-label="Instituto Odontológico Santa Amélia Premium" className="flex items-center gap-3">
+          <span className={`font-display text-2xl leading-none ${light ? 'text-white' : 'text-ink'}`}>iosa</span>
+          <span className={`block w-px h-5 ${light ? 'bg-white/30' : 'bg-ink/20'}`}></span>
+          <span className={`text-[10px] tracking-super-wide uppercase ${light ? 'text-white/70' : 'text-ash'}`}>Premium</span>
+        </a>
+      );
+    }
+
+    function ContactLinks({ dark=false, className='' }) {
+      const base = dark ? 'text-white/75 hover:text-white' : 'text-ink/85 hover:text-navy';
+      return (
+        <ul className={`space-y-2 text-[14px] ${className}`}>
+          <li><a className={`block ${base}`} href={CONTACT.phone.href}>{CONTACT.phone.label}</a></li>
+          <li><a className={`block ${base}`} href={CONTACT.whatsapp.href}>{CONTACT.whatsapp.label}</a></li>
+          <li><a className={`block ${base}`} href={CONTACT.email.href}>{CONTACT.email.label}</a></li>
+        </ul>
+      );
+    }
+
+    function Header() {
+      const [open, setOpen] = useState(false);
+      const [scrolled, setScrolled] = useState(false);
+      useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 12);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+      }, []);
+
+      return (
+        <header className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${scrolled ? 'bg-white/85 backdrop-blur-md border-b border-stone/60' : 'bg-transparent'}`}>
+          <div className="container-x h-20 flex items-center justify-between">
+            <Logo />
+            <nav aria-label="Principal" className="hidden lg:flex items-center gap-10">
+              {NAV.map(n => (
+                <a key={n.href} href={n.href} className="text-[12px] tracking-[.22em] uppercase text-ink/80 hover:text-navy transition-colors">
+                  {n.label}
+                </a>
+              ))}
+            </nav>
+            <div className="hidden lg:flex items-center gap-6">
+              <a href="tel:+553133339000" className="text-[12px] tracking-[.22em] uppercase text-ink/70 hover:text-navy">
+                (31) 3333-9000
+              </a>
+              <a href="#contato" className="btn-primary">Agendar</a>
+            </div>
+            <div className="lg:hidden flex items-center gap-3">
+              <a href="#contato" className="hidden sm:inline-flex btn-primary py-2.5 px-4 text-[10px]">Agendar</a>
+              <button
+                className="inline-flex items-center justify-center w-10 h-10 -mr-2"
+                aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+                aria-expanded={open}
+                onClick={() => setOpen(!open)}
+              >
+                <span className="relative block w-6 h-px bg-ink">
+                  <span className={`absolute left-0 w-6 h-px bg-ink transition-transform duration-300 ${open ? 'rotate-45 top-0' : '-top-2'}`}></span>
+                  <span className={`absolute left-0 w-6 h-px bg-ink transition-transform duration-300 ${open ? '-rotate-45 top-0' : 'top-2'}`}></span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile menu */}
+          <div className={`lg:hidden overflow-hidden bg-white transition-[max-height] duration-500 ease-out ${open ? 'max-h-[600px] border-t border-stone' : 'max-h-0'}`}>
+            <div className="px-6 py-8 flex flex-col gap-6">
+              {NAV.map(n => (
+                <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="text-sm tracking-[.22em] uppercase text-ink/80">
+                  {n.label}
+                </a>
+              ))}
+              <div className="hair my-2" />
+              <a href="tel:+553133339000" className="text-sm tracking-[.22em] uppercase text-ink/70">(31) 3333-9000</a>
+              <a href="#contato" onClick={() => setOpen(false)} className="btn-primary justify-center">Agendar Consulta</a>
+            </div>
+          </div>
+        </header>
+      );
+    }
+
+    function Hero() {
+      return (
+        <section id="top" className="relative pt-32 lg:pt-40 pb-20 lg:pb-32 overflow-hidden">
+          <div className="container-x">
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+              <div className="lg:col-span-7 reveal">
+                <div className="flex items-center gap-4 mb-8 text-[11px] tracking-[.26em] uppercase text-ash">
+                  <span>Belo Horizonte · Desde 2015</span>
+                  <span className="hidden sm:inline w-px h-3 bg-stone"></span>
+                  <span className="hidden sm:inline-flex items-center gap-2">
+                    <span className="text-navy not-italic" aria-hidden>★</span>
+                    4.9 · 487 avaliações
+                  </span>
+                </div>
+                <h1 className="font-display text-[44px] sm:text-6xl lg:text-[88px] leading-[1.02] text-ink tracking-[-0.01em]">
+                  Odontologia<br />
+                  premium, <em className="not-italic text-navy">silenciosa</em><br />
+                  <span className="italic font-light">e atemporal.</span>
+                </h1>
+                <p className="mt-10 max-w-xl text-[15px] leading-[1.85] text-ash">
+                  No coração do bairro Santa Amélia, redefinimos a experiência odontológica com
+                  ciência, refinamento e um cuidado profundamente humano.
+                </p>
+                <div className="mt-12 flex flex-wrap items-center gap-8">
+                  <a href="#contato" className="btn-primary">Agendar Avaliação</a>
+                  <a href="#especialidades" className="btn-ghost">Conhecer especialidades →</a>
+                </div>
+                <p className="mt-6 text-[12px] tracking-[.18em] uppercase text-ash">
+                  Primeira avaliação por agendamento · resposta em até 1 dia útil
+                </p>
+              </div>
+
+              <aside className="lg:col-span-5 reveal" aria-label="Indicadores">
+                <div className="border-t border-stone pt-8 grid grid-cols-3 gap-6">
+                  <Stat number="10" label="anos de história" />
+                  <Stat number="4.9" label="avaliação Google" />
+                  <Stat number="04" label="especialistas" />
+                </div>
+                <div className="mt-10 aspect-[4/5] w-full bg-gradient-to-br from-mist via-pearl to-stone relative overflow-hidden">
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 500" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="ln" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#152a44" stopOpacity=".18"/>
+                        <stop offset="100%" stopColor="#152a44" stopOpacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <circle cx="200" cy="240" r="140" fill="none" stroke="#152a44" strokeOpacity=".12" />
+                    <circle cx="200" cy="240" r="90"  fill="none" stroke="#152a44" strokeOpacity=".18" />
+                    <circle cx="200" cy="240" r="40"  fill="url(#ln)" />
+                    <line x1="200" y1="20" x2="200" y2="460" stroke="#152a44" strokeOpacity=".08" />
+                  </svg>
+                  <div className="absolute top-6 left-6 right-6 flex items-center justify-between">
+                    <span className="eyebrow">Concierge Odontológico</span>
+                    <span className="eyebrow">Est. 2015</span>
+                  </div>
+                  <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                    <p className="font-display italic text-xl text-ink/80">Santa Amélia · BH</p>
+                    <span className="eyebrow">Instituto</span>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Stat({ number, label }) {
+      return (
+        <div>
+          <p className="font-display text-4xl text-ink leading-none">{number}</p>
+          <p className="eyebrow mt-3">{label}</p>
+        </div>
+      );
+    }
+
+    function Marquee() {
+      const words = ['Excelência', 'Ciência', 'Estética', 'Humanização', 'Discrição', 'Precisão', 'Atemporal'];
+      const list = [...words, ...words];
+      return (
+        <section aria-hidden="true" className="border-y border-stone py-6 overflow-hidden bg-pearl">
+          <div className="marquee-track flex gap-12 whitespace-nowrap will-change-transform">
+            {list.map((w, i) => (
+              <span key={i} className="font-display text-xl sm:text-2xl italic text-ink/70 flex items-center gap-12">
+                {w} <span className="w-1 h-1 bg-ink/20 rounded-full inline-block"></span>
+              </span>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function About() {
+      return (
+        <section id="sobre" className="section-y">
+          <div className="container-x grid lg:grid-cols-12 gap-12 lg:gap-20">
+            <div className="lg:col-span-4 reveal">
+              <p className="eyebrow mb-6">A Clínica</p>
+              <h2 className="font-display text-4xl lg:text-5xl leading-[1.1] text-ink">
+                Uma nova maneira<br /> de cuidar do sorriso.
+              </h2>
+            </div>
+            <div className="lg:col-span-7 lg:col-start-6 reveal">
+              <p className="text-[16px] leading-[1.9] text-ink/85">
+                Fundado em 2015, o Instituto Odontológico Santa Amélia Premium nasceu da
+                convicção de que excelência clínica e experiência humana são inseparáveis.
+                Cada detalhe — da arquitetura à escolha das cerâmicas — foi cuidado para que
+                o paciente se sinta tranquilo, ouvido e protegido.
+              </p>
+              <p className="mt-6 text-[16px] leading-[1.9] text-ash">
+                Trabalhamos com um time autoral de especialistas, tecnologia digital integrada
+                e protocolos de discrição. Aqui, cada plano de tratamento é assinado.
+              </p>
+
+              <div className="mt-14 grid sm:grid-cols-3 gap-8">
+                <InfoLine label="Missão">Oferecer tratamentos modernos, humanizados e acessíveis — saúde bucal e autoestima.</InfoLine>
+                <InfoLine label="Visão">Ser referência em odontologia premium na Pampulha e Santa Amélia.</InfoLine>
+                <InfoLine label="Valores">Ética · Transparência · Tecnologia · Humanização · Excelência.</InfoLine>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Differentials() {
+      return (
+        <section id="diferenciais" className="section-y bg-pearl">
+          <div className="container-x">
+            <div className="reveal max-w-2xl">
+              <p className="eyebrow mb-6">Diferenciais</p>
+              <h2 className="font-display text-4xl lg:text-5xl leading-[1.1]">
+                Detalhes que tornam <em className="text-navy not-italic">a experiência</em> inesquecível.
+              </h2>
+            </div>
+            <div className="mt-16 lg:mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-stone">
+              {DIFFERENTIALS.map((d, i) => (
+                <article key={i} className="bg-pearl p-10 reveal hover:bg-white transition-colors duration-500">
+                  <p className="font-display text-3xl text-navy">{String(i + 1).padStart(2, '0')}</p>
+                  <h3 className="mt-6 font-display text-2xl text-ink">{d.t}</h3>
+                  <p className="mt-3 text-[14.5px] leading-[1.8] text-ash">{d.d}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Team() {
+      return (
+        <section id="equipe" className="section-y">
+          <div className="container-x">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 reveal">
+              <div className="max-w-xl">
+                <p className="eyebrow mb-6">A Equipe</p>
+                <h2 className="font-display text-4xl lg:text-5xl leading-[1.1]">
+                  Especialistas com<br />
+                  <em className="text-navy not-italic">olhar autoral.</em>
+                </h2>
+              </div>
+              <p className="text-[15px] leading-[1.9] text-ash max-w-md">
+                Profissionais selecionados por sua trajetória clínica e por compartilharem
+                a mesma filosofia de cuidado e estética discreta.
+              </p>
+            </div>
+
+            <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-stone border border-stone">
+              {TEAM.map((p, i) => (
+                <article key={i} className="bg-white reveal group">
+                  <div className="aspect-[4/5] bg-gradient-to-b from-mist to-stone relative overflow-hidden">
+                    <span className="absolute inset-0 flex items-center justify-center font-display text-[120px] text-ink/15 group-hover:scale-105 transition-transform duration-[1200ms] ease-out">
+                      {p.initials}
+                    </span>
+                    <span className="absolute top-4 left-4 eyebrow">0{i+1}</span>
+                  </div>
+                  <div className="p-7">
+                    <h3 className="font-display text-2xl leading-tight text-ink">{p.name}</h3>
+                    <p className="mt-2 text-[12px] tracking-[.24em] uppercase text-navy">{p.role}</p>
+                    <p className="mt-3 text-[12px] text-ash">{p.credo}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Specialties() {
+      return (
+        <section id="especialidades" className="section-y bg-ink text-white">
+          <div className="container-x">
+            <div className="grid lg:grid-cols-12 gap-10 reveal">
+              <div className="lg:col-span-5">
+                <p className="eyebrow eyebrow-light mb-6>Especialidades</p>
+                <h2 className="font-display text-4xl lg:text-5xl leading-[1.1]">
+                  Da prevenção à<br />
+                  <em className="not-italic text-skyMute">reabilitação completa.</em>
+                </h2>
+              </div>
+              <p className="lg:col-span-6 lg:col-start-7 text-[15px] leading-[1.95] text-white/70 self-end">
+                Um portfólio clínico construído com tecnologia digital, materiais premium e
+                planejamento personalizado para cada perfil de sorriso.
+              </p>
+            </div>
+
+            <ul className="mt-16 border-t border-white/15">
+              {SPECIALTIES.map((s, i) => (
+                <li key={i} className="reveal group border-b border-white/15">
+                  <a href="#contato" className="grid grid-cols-12 items-start lg:items-center gap-x-6 gap-y-3 py-8 lg:py-10 transition-colors duration-500 hover:bg-white/5 px-2 -mx-2">
+                    <span className="col-span-2 lg:col-span-1 font-display text-2xl text-white/40">{s.n}</span>
+                    <h3 className="col-span-10 lg:col-span-4 font-display text-3xl lg:text-4xl">{s.t}</h3>
+                    <p className="col-span-12 lg:col-span-6 col-start-3 lg:col-start-auto text-[14px] leading-[1.85] text-white/65 -mt-2 lg:mt-0">{s.d}</p>
+                    <span className="hidden lg:inline-block lg:col-span-1 text-right text-xl text-white/40 group-hover:text-white group-hover:translate-x-1 transition-transform duration-500" aria-hidden>→</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      );
+    }
+
+    function Testimonials() {
+      const [i, setI] = useState(0);
+      useEffect(() => {
+        const id = setInterval(() => setI(v => (v + 1) % TESTIMONIALS.length), 7000);
+        return () => clearInterval(id);
+      }, []);
+      const t = TESTIMONIALS[i];
+      return (
+        <section id="depoimentos" className="section-y">
+          <div className="container-x">
+            <div className="grid lg:grid-cols-12 gap-12">
+              <div className="lg:col-span-4 reveal">
+                <p className="eyebrow mb-6">Depoimentos</p>
+                <h2 className="font-display text-4xl lg:text-5xl leading-[1.1]">
+                  Confiança que<br /><em className="text-navy not-italic">se constrói.</em>
+                </h2>
+                <div className="mt-12 flex gap-2">
+                  {TESTIMONIALS.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setI(idx)}
+                      aria-label={`Depoimento ${idx + 1}`}
+                      className={`h-px transition-all duration-500 ${idx === i ? 'w-12 bg-ink' : 'w-6 bg-stone'}`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div key={i} className="lg:col-span-7 lg:col-start-6 reveal in" aria-live="polite">
+                <p className="font-display text-3xl lg:text-4xl leading-[1.35] italic text-ink">
+                  “{t.text}”
+                </p>
+                <div className="mt-10 flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-mist flex items-center justify-center font-display text-lg text-navy">
+                    {t.name.split(' ').map(n => n[0]).slice(0,2).join('')}
+                  </div>
+                  <div>
+                    <p className="text-[14px] font-medium text-ink">{t.name}</p>
+                    <p className="text-[12px] text-ash tracking-wide">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Outros */}
+            <div className="mt-20 grid md:grid-cols-3 gap-px bg-stone border border-stone reveal">
+              {TESTIMONIALS.slice(0,3).map((tt, idx) => (
+                <blockquote key={idx} className="bg-white p-8">
+                  <p className="text-[14px] leading-[1.85] text-ink/85">“{tt.text}”</p>
+                  <footer className="mt-6">
+                    <p className="text-[12px] font-medium text-ink">{tt.name}</p>
+                    <p className="text-[11px] text-ash tracking-wider uppercase">{tt.role}</p>
+                  </footer>
+                </blockquote>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Reputation() {
+      return (
+        <section className="section-y-sm bg-pearl">
+          <div className="container-x">
+            <div className="reveal max-w-2xl mb-14">
+              <p className="eyebrow mb-6">Reputação</p>
+              <h2 className="font-display text-4xl lg:text-5xl leading-[1.1]">
+                Avaliada por quem<br /><em className="text-navy not-italic">já viveu a experiência.</em>
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-px bg-stone border border-stone reveal">
+              <div className="bg-white p-10 lg:p-14">
+                <p className="eyebrow mb-6">Google Reviews</p>
+                <div className="flex items-baseline gap-3">
+                  <span className="font-display text-7xl lg:text-8xl text-ink leading-none">4.9</span>
+                  <span className="font-display text-2xl text-ash">/ 5</span>
+                </div>
+                <div className="mt-4 text-navy text-lg tracking-wider" aria-label="4.9 de 5 estrelas">{STARS}</div>
+                <p className="mt-6 text-[14px] text-ash">Baseado em 487 avaliações verificadas.</p>
+              </div>
+              <div className="bg-white p-10 lg:p-14">
+                <p className="eyebrow mb-6">Reclame Aqui</p>
+                <div className="grid grid-cols-3 gap-6">
+                  <div>
+                    <p className="font-display text-5xl text-ink">98<span className="text-2xl text-ash">%</span></p>
+                    <p className="eyebrow mt-3">Solução</p>
+                  </div>
+                  <div>
+                    <p className="font-display text-5xl text-ink">9.4</p>
+                    <p className="eyebrow mt-3">Consumidor</p>
+                  </div>
+                  <div>
+                    <p className="font-display text-5xl text-ink">1<span className="text-2xl text-ash">d</span></p>
+                    <p className="eyebrow mt-3">Resposta</p>
+                  </div>
+                </div>
+                <p className="mt-8 text-[14px] text-ash">Índices coletados no painel oficial.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Location() {
+      return (
+        <section id="localizacao" className="section-y">
+          <div className="container-x grid lg:grid-cols-12 gap-10 lg:gap-16">
+            <div className="lg:col-span-5 reveal">
+              <p className="eyebrow mb-6">Localização</p>
+              <h2 className="font-display text-4xl lg:text-5xl leading-[1.1]">
+                No coração de<br /><em className="text-navy not-italic">Santa Amélia.</em>
+              </h2>
+              <div className="mt-12 space-y-8">
+                <InfoLine label="Endereço">
+                  Rua dos Ipês, 450<br/>Santa Amélia · Belo Horizonte — MG<br/>CEP 31555-000
+                </InfoLine>
+                <InfoLine label="Horário">
+                  Seg — Sex · 08:00 – 19:00<br/>
+                  Sáb · 08:00 – 13:00<br/>
+                  Feriados · 09:00 – 12:00<br/>
+                  Domingo · Fechado
+                </InfoLine>
+                <InfoLine label="Contato direto">
+                  <ContactLinks className="text-[15px]" />
+                </InfoLine>
+              </div>
+            </div>
+            <div className="lg:col-span-7 reveal">
+              <div className="aspect-[5/4] w-full bg-mist relative overflow-hidden border border-stone">
+                <iframe
+                  title="Mapa da clínica"
+                  className="absolute inset-0 w-full h-full grayscale contrast-95"
+                  loading="lazy"
+                  src="https://www.google.com/maps?q=Santa+Am%C3%A9lia%2C+Belo+Horizonte+-+MG&output=embed"
+                  referrerPolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+              <a
+                href="https://www.google.com/maps?q=Santa+Am%C3%A9lia%2C+Belo+Horizonte+-+MG"
+                target="_blank" rel="noopener noreferrer"
+                className="btn-ghost mt-6 inline-flex">Abrir no Google Maps →</a>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function InfoLine({ label, children }) {
+      return (
+        <div className="border-t border-stone pt-5">
+          <p className="eyebrow mb-3">{label}</p>
+          <div className="text-[15px] leading-[1.9] text-ink/85">{children}</div>
+        </div>
+      );
+    }
+
+    function Contact() {
+      const [sent, setSent] = useState(false);
+      const onSubmit = (e) => { e.preventDefault(); setSent(true); };
+      return (
+        <section id="contato" className="section-y bg-ink text-white">
+          <div className="container-x grid lg:grid-cols-12 gap-12 lg:gap-20">
+            <div className="lg:col-span-5 reveal">
+              <p className="eyebrow eyebrow-light">Contato</p>
+              <h2 className="mt-6 font-display text-4xl lg:text-5xl leading-[1.1]">
+                Comece pela<br /><em className="not-italic text-skyMute">consulta inicial.</em>
+              </h2>
+              <p className="mt-8 text-[15px] leading-[1.9] text-white/70 max-w-md">
+                Conte-nos um pouco sobre você. Em até 1 dia útil nossa equipe entrará em contato
+                para confirmar sua agenda.
+              </p>
+              <ContactLinks dark className="mt-12 space-y-4" />
+            </div>
+
+            <div className="lg:col-span-6 lg:col-start-7 reveal" aria-live="polite">
+              {sent ? (
+                <div className="border border-white/20 p-10 text-center">
+                  <p className="font-display text-3xl">Recebemos sua mensagem.</p>
+                  <p className="mt-3 text-white/70 text-[14px]">Em breve nossa equipe entrará em contato.</p>
+                  <button onClick={() => setSent(false)} className="btn-ghost btn-ghost-invert mt-8 inline-flex">Enviar outra solicitação →</button>
+                </div>
+              ) : (
+                <form onSubmit={onSubmit} className="space-y-8" aria-label="Formulário de contato" noValidate>
+                  <Field label="Nome completo" id="nome" required />
+                  <div className="grid sm:grid-cols-2 gap-8">
+                    <Field label="E-mail" id="email" type="email" required />
+                    <Field label="Telefone / WhatsApp" id="fone" type="tel" required />
+                  </div>
+                  <Field label="Especialidade de interesse" id="interesse" />
+                  <Field label="Mensagem (opcional)" id="msg" />
+                  <div className="pt-6 flex flex-wrap items-center gap-6 justify-between">
+                    <p className="text-[11px] tracking-[.18em] uppercase text-white/50">
+                      Seus dados permanecem confidenciais.
+                    </p>
+                    <button type="submit" className="btn-primary btn-primary-invert">
+                      Enviar Solicitação
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Field({ label, id, type = 'text', required }) {
+      return (
+        <div>
+          <label htmlFor={id} className="field-label field-label-invert">{label}{required && ' *'}</label>
+          <input
+            id={id} name={id} type={type} required={required}
+            className="field field-invert"
+            autoComplete="off"
+          />
+        </div>
+      );
+    }
+
+    function Faq() {
+      const [open, setOpen] = useState(0);
+      return (
+        <section id="faq" className="section-y">
+          <div className="max-w-[1100px] mx-auto px-6 lg:px-12">
+            <div className="reveal text-center max-w-xl mx-auto mb-16">
+              <p className="eyebrow mb-6">Perguntas Frequentes</p>
+              <h2 className="font-display text-4xl lg:text-5xl leading-[1.1]">
+                As dúvidas que <em className="text-navy not-italic">mais ouvimos.</em>
+              </h2>
+            </div>
+            <ul className="border-t border-stone">
+              {FAQS.map((f, i) => {
+                const active = open === i;
+                return (
+                  <li key={i} className="border-b border-stone reveal">
+                    <button
+                      onClick={() => setOpen(active ? -1 : i)}
+                      className="w-full text-left py-7 flex items-start justify-between gap-6"
+                      aria-expanded={active}
+                      aria-controls={`faq-${i}`}
+                    >
+                      <span className="font-display text-2xl lg:text-3xl leading-snug text-ink pr-6">{f.q}</span>
+                      <span className={`mt-2 text-xl text-ash transition-transform duration-500 ${active ? 'rotate-45' : ''}`} aria-hidden>+</span>
+                    </button>
+                    <div
+                      id={`faq-${i}`}
+                      className="overflow-hidden transition-[max-height] duration-700 ease-out"
+                      style={{ maxHeight: active ? '300px' : '0px' }}
+                    >
+                      <p className="pb-7 pr-12 text-[15px] leading-[1.9] text-ash max-w-3xl">{f.a}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
+      );
+    }
+
+    function Footer() {
+      return (
+        <footer className="bg-pearl border-t border-stone">
+          <div className="container-x py-20">
+            <div className="grid lg:grid-cols-12 gap-12">
+              <div className="lg:col-span-4">
+                <Logo />
+                <p className="mt-8 text-[14px] leading-[1.9] text-ash max-w-xs">
+                  Odontologia premium em Belo Horizonte. Onde ciência, estética e cuidado humano
+                  se encontram em cada detalhe.
+                </p>
+              </div>
+              <div className="lg:col-span-2">
+                <p className="eyebrow mb-5">Navegação</p>
+                <ul className="space-y-3 text-[14px]">
+                  {NAV.map(n => (
+                    <li key={n.href}><a className="hover:text-navy" href={n.href}>{n.label}</a></li>
+                  ))}
+                </ul>
+              </div>
+              <div className="lg:col-span-3">
+                <p className="eyebrow mb-5">Endereço</p>
+                <p className="text-[14px] leading-[1.9] text-ink/80">
+                  Rua dos Ipês, 450<br/>Santa Amélia<br/>Belo Horizonte — MG<br/>CEP 31555-000
+                </p>
+              </div>
+              <div className="lg:col-span-3">
+                <p className="eyebrow mb-5">Contato</p>
+                <ContactLinks />
+                <p className="eyebrow mt-8 mb-3">Horários</p>
+                <p className="text-[13px] leading-[1.85] text-ash">
+                  Seg–Sex 08:00 – 19:00<br/>Sáb 08:00 – 13:00<br/>Feriados 09:00 – 12:00
+                </p>
+              </div>
+            </div>
+            <div className="hair my-12" />
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-[12px] text-ash">
+              <p>© {YEAR} Instituto Odontológico Santa Amélia Premium · CNPJ 47.821.963/0001-78</p>
+              <p>Responsável Técnica: Dra. Mariana Almeida · CRO/MG 28.114</p>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+    function WhatsAppFAB() {
+      return (
+        <a
+          href="https://wa.me/5531999999000"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="Conversar pelo WhatsApp"
+          className="hidden lg:inline-flex fixed bottom-6 right-6 z-30 items-center gap-3 bg-ink text-white py-3 px-5 text-[12px] tracking-[.22em] uppercase shadow-lg hover:bg-navy transition-colors duration-500">
+          WhatsApp
+        </a>
+      );
+    }
+
+    function MobileBar() {
+      return (
+        <div className="lg:hidden fixed bottom-0 inset-x-0 z-30 grid grid-cols-2 bg-white/95 backdrop-blur border-t border-stone">
+          <a
+            href="https://wa.me/5531999999000"
+            target="_blank" rel="noopener noreferrer"
+            className="text-center py-4 text-[11px] tracking-[.24em] uppercase text-ink border-r border-stone">
+            WhatsApp
+          </a>
+          <a href="#contato" className="text-center py-4 text-[11px] tracking-[.24em] uppercase text-white bg-ink">
+            Agendar
+          </a>
+        </div>
+      );
+    }
+
+    function App() {
+      useReveal();
+      return (
+        <>
+          <Header />
+          <main id="conteudo">
+            <Hero />
+            <Marquee />
+            <About />
+            <Differentials />
+            <Team />
+            <Specialties />
+            <Testimonials />
+            <Reputation />
+            <Location />
+            <Contact />
+            <Faq />
+          </main>
+          <Footer />
+          <WhatsAppFAB />
+          <MobileBar />
+        </>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
